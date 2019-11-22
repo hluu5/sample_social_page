@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  padding: 0
+}
+
+.avatar {
+  border: 2px double rgb(230, 224, 224);
+  padding: 4px;
+  border-radius: 50%;
+  width:5vw;
+  height: 5vw;
+  overflow: 'hidden'
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: .5em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 50%;
+  margin-top: 50px;
+  position: relative;
+}
+
+.displayImage{
+  margin: 10px;
+  padding: 10px;
+  max-width: 40%;
+  max-height: 70%;
+  flex:1;
+  min-width:100px;
+}
+
+.displayHeader{
+  margin: 10px;
+  padding: 10px;
+  flex: 1;
+  min-width:150px;
+}
+
+.top {
+  margin-bottom: 2vw;
+  color: rgb(0, 0, 0);
+  font-size:2vw
+}
+
+.bottom {
+  color: rgb(105, 102, 102);
+  font-size:1vw;
+}
+
+.buttonTopRight{
+  margin-left: 5%;
+  margin-top: 10%;
+  margin-bottom:10%;
+  margin-right: 5%;
+  max-width: 20nw;
+  background-color: rgb(245, 75, 75);
+  color: white;
+  padding: .5vw;
+  border: none;
+  border-radius: 10em;
+  flex:1;
+  min-width:10px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 0;
+}
+
+
+
+

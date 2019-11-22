@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0
+}
+
+.avatar {
+  border: 2px double rgb(230, 224, 224);
+  padding: 4px;
+  border-radius: 50%;
+  width:5vw;
+  height: 5vw;
+  overflow: 'hidden'
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: .5em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 50%;
+  margin-top: 100px;
+  position: relative;
+}
+
+.displayHeader{
+  margin: 10px;
+  padding: 10px;
+  display: inline-block;
+  max-width: 50%;
+  max-height: 80%
+}
+
+.top {
+  /* position: absolute;
+  top: 20%; */
+  margin-bottom: 1vw;
+  color: rgb(0, 0, 0);
+  font-size:2vw
+}
+
+.bottom {
+  color: rgb(105, 102, 102);
+  font-size:1vw
+}
+
+.buttonTopRight{
+  width: 10 vw;
+  height: 10 vw;
+  margin-left: 10%;
+  position: absolute;
+  top: 30%;
+  background-color: rgb(245, 75, 75);
+  color: white;
+  padding: 1vw;
+  border: none;
+  border-radius: 10em;
+  overflow: 'hidden'
+}
