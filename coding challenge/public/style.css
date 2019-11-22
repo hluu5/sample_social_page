@@ -40,7 +40,7 @@
 }
 
 .displayHeader{
-  margin-top: 2vw;
+  margin-top: 1.5vw;
   margin-right: 1vw;
   margin-left: 0;
   margin-bottom: 1vw;
@@ -68,14 +68,14 @@
   margin-top: 10%;
   margin-bottom:10%;
   margin-right: 5%;
-  max-width: 20nw;
+  max-width: 10vw;
   background-color: rgb(245, 75, 75);
   color: white;
   padding: .5vw;
   border: none;
   border-radius: 10em;
   flex:1;
-  min-width:100px;
+  min-width:70px;
 }
 
 .container {
@@ -91,18 +91,35 @@
 }
 
 .bottomNav {
-  background-color: rgba(236, 233, 233, 0.938);
+  background-color: rgba(240, 239, 239, 0.938);
   display: flex;
   position: relative;
   bottom: 0;
   width: 100%;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
 }
 
 .rightButton {
-  background-color: cornflowerblue;
+  background-color: rgb(158, 201, 247);
+  color: white;
   padding: '1vw';
 }
+
+.buttonNav {
+  padding: 1vw;
+   color:#beb6b6ef
+}
+
+.buttonNav.midButton {
+  flex-grow: 2;
+}
+
+.buttonNav.lastButton {
+  background-color: rgb(158, 201, 247);
+  color: white
+}
+
+
 
 
 

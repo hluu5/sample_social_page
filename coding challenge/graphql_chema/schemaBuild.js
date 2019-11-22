@@ -60,6 +60,7 @@ const schema = buildSchema(`
   }
 
   input PaginationInput {
+    first: Int
     offset: Int
     sortby: SortByInput
   }

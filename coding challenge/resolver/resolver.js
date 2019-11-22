@@ -38,10 +38,13 @@ const getEntries = (args)=> {
     return parsed
   })
   .then((parsed)=> {
+    console.log(currentPagination);
     //this is just a placeholder function. Depends on which params are passed through request, this function will change
     let sortFunction = null;
     currentPagination.offset = args.input.offset;
-
+    if (args.input.first !== undefined) {
+      currentPagination.first = 0;
+    }
     if (args.input.sortby === 'date') {
       sortFunction = (a,b)=>{
         if (new Date(a.date) > new Date(b.date)) return -1;

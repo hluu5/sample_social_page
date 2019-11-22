@@ -9,9 +9,9 @@ export default class Stats extends React.Component {
         <div className="statsContainer">
           <div>Sihdasoihdaoishdoaidh</div>
           <div className='bottomNav'>
-            <div style={{padding: '1vw'}}>View Source</div>
-            <div style={{padding: '1vw',flexGrow: '2'}}> Code Submissions</div>
-            <div style={{padding: '1vw', backgroundColor: 'rgb(158, 201, 247)', color: 'white'}}>Claim $5000</div>
+            <div className='buttonNav'>View Source</div>
+            <div className='buttonNav midButton'>{'</>'} Code Submissions</div>
+            <div className='buttonNav lastButton'>Claim $5000</div>
           </div>
         </div>
       </div>

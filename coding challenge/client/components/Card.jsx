@@ -3,6 +3,9 @@ import Header from './Header.jsx';
 import Description from './Description.jsx';
 import Stats from './Stats.jsx';
 import '../../public/style.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faComment, faShare } from '@fortawesome/free-solid-svg-icons';
+
 
 export default class Card extends React.Component {
   state = {}
@@ -12,7 +15,10 @@ export default class Card extends React.Component {
         <Header />
         <Description />
         <Stats />
-        <div className="bottomNav"></div>
+        <div className="bottomNav">
+          <div className='buttonNav'><FontAwesomeIcon icon={ faComment } /> Comments</div>
+          <div className='buttonNav'><FontAwesomeIcon icon={ faShare } /> Share</div>
+        </div>
       </div>
     )
   }
