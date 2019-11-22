@@ -64,8 +64,8 @@ const getEntries = (args)=> {
     //filter our result:
     let filtered = _.filter(parsed, filterFunction)
     //reset pagination
-    if (args.input.first !== undefined) {
-      currentPagination.first = 0;
+    if (args.input.first!==undefined) {
+      currentPagination.first = args.input.first;
     }
 
     //sort by date
@@ -82,6 +82,7 @@ const getEntries = (args)=> {
       };
     }
     const sorted = filtered.sort(sortFunction);
+    console.log(currentPagination.first)
     let paginated = sorted.slice(currentPagination.first, currentPagination.first+currentPagination.offset);
     // update pagination
     currentPagination.first += currentPagination.offset;

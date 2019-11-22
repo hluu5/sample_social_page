@@ -78,6 +78,7 @@
   min-width:70px;
 }
 
+
 .container {
   display: flex;
   flex-wrap: wrap;
@@ -110,10 +111,21 @@
   color:#beb6b6ef;
 }
 
+.buttonNav:hover {
+  border: .1vw solid rgb(216, 219, 230);
+  margin-bottom: -.1vw;
+  margin-top: -.1vw;
+}
+
 .dotNav {
   padding: 1vw;
   color:#beb6b6ef;
-  margin-left: auto;
+  margin-left: auto
+}
+.dotNav:hover {
+  margin-bottom: -.1vw;
+  margin-top: -.1vw;
+  border: .1vw solid rgb(216, 219, 230)
 }
 
 
