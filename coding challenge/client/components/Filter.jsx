@@ -5,11 +5,12 @@ export default class Filter extends React.Component {
   state = {}
   render() {
     return (
-      <div style={{marginLeft: '2vw', marginRight: '2vw', marginTop: '0', display: 'flex'}}>
-        <button>All</button>
-        <button>Trending</button>
-        <button>Open Task</button>
-        <button>Completed Task</button>
+      <div className='filterBar'>
+        <div className="flexButtonContainer textFilter">Filter By:</div>
+        <div className="flexButtonContainer"><button>All</button></div>
+        <div className="flexButtonContainer"><button>Trending</button></div>
+        <div className="flexButtonContainer"><button>Open Task</button></div>
+        <div className="flexButtonContainer"><button>Completed Task</button></div>
       </div>
     )
   }

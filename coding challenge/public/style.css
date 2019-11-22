@@ -87,7 +87,6 @@
   border: 1px double rgb(210, 219, 248);
   border-radius: .3em;
   width: 100%;
-  position: relative;
 }
 
 .bottomNav {
@@ -96,6 +95,7 @@
   position: relative;
   bottom: 0;
   width: 100%;
+  flex-wrap: wrap;
   /* box-sizing: border-box; */
 }
 
@@ -107,16 +107,95 @@
 
 .buttonNav {
   padding: 1vw;
-   color:#beb6b6ef
+  color:#beb6b6ef;
 }
 
-.buttonNav.midButton {
-  flex-grow: 2;
+.dotNav {
+  padding: 1vw;
+  color:#beb6b6ef;
+  margin-left: auto;
 }
+
 
 .buttonNav.lastButton {
   background-color: rgb(158, 201, 247);
-  color: white
+  color: white;
+  margin-left: auto
+}
+
+.filterBar {
+  margin-left: auto;
+  margin-right: auto;
+  /* display: flex; */
+  /* justify-content: center */
+}
+
+.flexButtonContainer {
+  display: inline-block;
+  width: 15vw;
+  margin: 1vw;
+}
+
+.textFilter {
+  display: inline-block;
+  width: 8vw;
+  margin-right: 0;
+  font-size: 1.5vw;
+  font-weight: bold;
+}
+
+.flexButtonContainer button {
+  border-radius: 1vw;
+  background-color: rgb(107, 103, 103);
+  color: white;
+  /* margin: 1vw; */
+  display: block;
+  width: 100%;
+  padding: .5vw;
+  border: none;
+  font-size: 1.5vw;
+
+}
+
+.thumbNailContainer {
+  border: 1px double rgb(204, 204, 207);
+  width: 15vw;
+  height: 10vw;
+  margin: .2vw;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.thumbNailImg {
+  width: 100%;
+  max-width: 15vw;
+}
+
+.statInfo {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  width: 12vw;
+  margin-left: 2vw;
+  padding: 1vw;
+  height:
+}
+
+.pledgeBTN {
+  display: inline-block;
+  vertical-align: middle
+}
+
+.pledgeBTN button {
+
+  padding-top: 1vw;
+  padding-right: 2vw;
+  padding-left: 2vw;
+  padding-bottom: 1vw;
+  border: 1px double rgb(186, 194, 219);
+  border-radius: .3em;
+  background-color: white;
+  color: rgb(186, 194, 219);
 }
 
 

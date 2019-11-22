@@ -4,7 +4,7 @@ import Description from './Description.jsx';
 import Stats from './Stats.jsx';
 import '../../public/style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faComment, faShare } from '@fortawesome/free-solid-svg-icons';
+import { faComment, faShare, faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 
 
 export default class Card extends React.Component {
@@ -18,6 +18,7 @@ export default class Card extends React.Component {
         <div className="bottomNav">
           <div className='buttonNav'><FontAwesomeIcon icon={ faComment } /> Comments</div>
           <div className='buttonNav'><FontAwesomeIcon icon={ faShare } /> Share</div>
+          <div className='dotNav'><FontAwesomeIcon icon={ faEllipsisH } /></div>
         </div>
       </div>
     )

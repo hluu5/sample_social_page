@@ -42,26 +42,39 @@ const getEntries = (args)=> {
     let filterFunction = (e)=>{return e};
     //this is just a placeholder function. Depends on which params are passed through request, this function will change
     let sortFunction = null;
+
+    //set pagination offset
     currentPagination.offset = args.input.offset;
+
+    //filter by trending;
     if (args.input.filter==='trending') {
       filterFunction = (e) => { return e.isTrending === true }
     }
+
+    //filter by trending;
     if (args.input.filter==='openTasks') {
       filterFunction=(e)=>{return e.status === 1}
     }
+
+    //filter by trending;
     if (args.input.filter==='completedTasks') {
       filterFunction=(e)=>{return e.trending === 0}
     }
+
+    //filter our result:
     let filtered = _.filter(parsed, filterFunction)
     //reset pagination
     if (args.input.first !== undefined) {
       currentPagination.first = 0;
     }
+
+    //sort by date
     if (args.input.sortby === 'date') {
       sortFunction = (a,b)=>{
         if (new Date(a.date) > new Date(b.date)) return -1;
         else return 1;
       };
+      //sort by popularity
     } else if (args.input.sortby === 'popularity') {
       sortFunction = (a,b)=>{
         if (a.popularity > b.popularity) return -1;
