@@ -12,7 +12,6 @@ export default class Card extends React.Component {
         <Header />
         <Description />
         <Stats />
-        <div className="bottomNav"></div>
       </div>
     )
   }

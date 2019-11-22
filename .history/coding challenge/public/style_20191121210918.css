@@ -101,6 +101,7 @@
 
 .rightButton {
   background-color: cornflowerblue;
+  margin-right: '1vw';
   padding: '1vw';
 }
 

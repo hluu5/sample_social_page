@@ -91,17 +91,21 @@
 }
 
 .bottomNav {
-  background-color: rgba(236, 233, 233, 0.938);
+  /* background-color: rgba(236, 233, 233, 0.938);
   display: flex;
+
   position: relative;
   bottom: 0;
   width: 100%;
-  box-sizing: border-box;
-}
-
-.rightButton {
-  background-color: cornflowerblue;
-  padding: '1vw';
+  padding: 1vw */
+  position: relative;
+    margin: 0;
+    padding: 0;
+    width: 69%;
+    height: auto;
+    bottom: 0px;
+    display: inline-block;
+    vertical-align: bottom;
 }
 
 

@@ -86,22 +86,17 @@
 .statsContainer {
   border: 1px double rgb(210, 219, 248);
   border-radius: .3em;
-  width: 100%;
-  position: relative;
+  width: 100%
 }
 
 .bottomNav {
-  background-color: rgba(236, 233, 233, 0.938);
+  background-color: rgb(239, 255, 255);
   display: flex;
+  /* overflow: hidden; */
   position: relative;
   bottom: 0;
   width: 100%;
-  box-sizing: border-box;
-}
-
-.rightButton {
-  background-color: cornflowerblue;
-  padding: '1vw';
+  /* padding: 1vw */
 }
 
 

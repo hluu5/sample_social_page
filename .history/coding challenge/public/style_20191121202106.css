@@ -5,7 +5,7 @@
 
 .avatar {
   border: 2px double rgb(230, 224, 224);
-  padding: 3px;
+  padding: 4px;
   border-radius: 50%;
   width:5vw;
   height: 5vw;
@@ -83,26 +83,6 @@
   flex-wrap: wrap;
 }
 
-.statsContainer {
-  border: 1px double rgb(210, 219, 248);
-  border-radius: .3em;
-  width: 100%;
-  position: relative;
-}
-
-.bottomNav {
-  background-color: rgba(236, 233, 233, 0.938);
-  display: flex;
-  position: relative;
-  bottom: 0;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.rightButton {
-  background-color: cornflowerblue;
-  padding: '1vw';
-}
 
 
 

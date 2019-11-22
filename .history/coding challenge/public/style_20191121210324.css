@@ -96,12 +96,13 @@
   position: relative;
   bottom: 0;
   width: 100%;
+  padding: 1vw;
   box-sizing: border-box;
 }
 
 .rightButton {
   background-color: cornflowerblue;
-  padding: '1vw';
+  height: 100%;
 }
 
 

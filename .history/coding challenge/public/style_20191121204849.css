@@ -93,15 +93,12 @@
 .bottomNav {
   background-color: rgba(236, 233, 233, 0.938);
   display: flex;
-  position: relative;
+  /* overflow: hidden; */
+  position: absolute;
   bottom: 0;
   width: 100%;
-  box-sizing: border-box;
-}
-
-.rightButton {
-  background-color: cornflowerblue;
-  padding: '1vw';
+  padding: 1vw;
+  /* padding: 1vw */
 }
 
 
