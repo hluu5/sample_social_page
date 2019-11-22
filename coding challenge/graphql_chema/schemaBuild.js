@@ -59,10 +59,17 @@ const schema = buildSchema(`
     popularity
   }
 
+  enum FilterByInput {
+    trending
+    openTasks
+    completedTasks
+  }
+
   input PaginationInput {
     first: Int
     offset: Int
     sortby: SortByInput
+    filter: FilterByInput
   }
 
   type RootQuery {

@@ -5,6 +5,7 @@ const { promisify } = require('util');
 const fs = require('fs');
 const readFile= promisify(fs.readFile);
 const writeFile= promisify(fs.writeFile);
+const _ = require('lodash');
 
 //For the purpose of this project, I declare a globale in memory oject to store current position of pagination
 //for real app, I could store in something like a session using redis.
@@ -38,10 +39,21 @@ const getEntries = (args)=> {
     return parsed
   })
   .then((parsed)=> {
-    console.log(currentPagination);
+    let filterFunction = (e)=>{return e};
     //this is just a placeholder function. Depends on which params are passed through request, this function will change
     let sortFunction = null;
     currentPagination.offset = args.input.offset;
+    if (args.input.filter==='trending') {
+      filterFunction = (e) => { return e.isTrending === true }
+    }
+    if (args.input.filter==='openTasks') {
+      filterFunction=(e)=>{return e.status === 1}
+    }
+    if (args.input.filter==='completedTasks') {
+      filterFunction=(e)=>{return e.trending === 0}
+    }
+    let filtered = _.filter(parsed, filterFunction)
+    //reset pagination
     if (args.input.first !== undefined) {
       currentPagination.first = 0;
     }
@@ -56,7 +68,7 @@ const getEntries = (args)=> {
         else return 1;
       };
     }
-    const sorted = parsed.sort(sortFunction);
+    const sorted = filtered.sort(sortFunction);
     let paginated = sorted.slice(currentPagination.first, currentPagination.first+currentPagination.offset);
     // update pagination
     currentPagination.first += currentPagination.offset;
