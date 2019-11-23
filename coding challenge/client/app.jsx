@@ -30,13 +30,13 @@ const App = () => {
     setFirst(0);
   };
 
-  const [hasMore, setHasMore] = useState(false)
+  const [hasMore, setHasMore] = useState(true)
 
   //Set ref for last
   const observer = useRef();
   let lastRef = useCallback((node) => {
     if (node === null) return;
-
+    if (hasMore === false) return;
     if (observer.current) observer.current.disconnect()
     observer.current = new IntersectionObserver(entries => {
       if (entries[0].isIntersecting) {
@@ -86,6 +86,8 @@ const App = () => {
         setList([...list, ...entries])
         if (entries.length > 0) {
           setHasMore(true)
+        } else if (entries.length === 0) {
+          setHasMore(false)
         }
       })
       .then(() => console.log(first))
