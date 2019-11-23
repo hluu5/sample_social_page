@@ -9,26 +9,26 @@ export default class Stats extends React.Component {
         <div className="statsContainer">
           <div>
             <div className='thumbNailContainer'>
-              <img className='thumbNailImg'src="https://www.bluleadz.com/hs-fs/hubfs/Brand%20Logos/BPLogo.jpg?width=534&name=BPLogo.jpg"></img>
+              <img className='thumbNailImg'src={this.props.thumbnail}></img>
             </div>
             <div className='statInfo'>
               <div style={{
                 fontSize: '2vw', color:'#6AB6D9', marginBottom: '.5vw', fontWeight:'bold'
                 }}>
-                  $5000
+                  {this.props.pledgeTotal}
               </div>
-              <div style={{fontSize: '1vw', color:'#BABFBF', marginBottom: '.5vw'}}>pledged total of {'$'} goal</div>
-              <div style={{fontSize: '2vw', color:'#CACCCF', marginBottom: '.5vw', fontWeight:'bold'}}>400</div>
+              <div style={{fontSize: '1vw', color:'#BABFBF', marginBottom: '.5vw'}}>pledged total of {this.props.pledgeGoal} goal</div>
+              <div style={{fontSize: '2vw', color:'#CACCCF', marginBottom: '.5vw', fontWeight:'bold'}}>{this.props.pledgerCount}</div>
               <div style={{fontSize: '1vw', color:'#CACCCF'}}>pledgers</div>
             </div>
             <div className='pledgeBTN'>
-              <button>Pledge</button>
+              { this.props.status === 1 ? (<button>Pledge</button>) : (<button>View Submission</button>)}
             </div>
           </div>
           <div className='bottomNav'>
             <div className='buttonNav'>View Source</div>
             <div className='buttonNav midButton'>{'</>'} Code Submissions</div>
-            <div className='buttonNav lastButton'>Claim $5000</div>
+            <div className='buttonNav lastButton'>Claim {this.props.pledgeTotal}</div>
           </div>
         </div>
       </div>

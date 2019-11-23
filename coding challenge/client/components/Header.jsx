@@ -1,25 +1,24 @@
 import React from 'react';
 import '../../public/style.css';
 
-export default class Header extends React.Component {
-  state = {}
-  render() {
-    return (
-      <div className='container'>
-        <div className='displayImage'>
-          <div className="avatar">
-            <img  src="https://images.pexels.com/photos/941693/pexels-photo-941693.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"></img>
-          </div>
+export default function Header (props){
+  let buttonClass = null;
+  props.isTrending === true ? buttonClass = 'buttonTopRight' : props.status === 1 ? buttonClass = 'buttonOpen' : buttonClass ='buttonCompleted'
+  return (
+    <div className='container'>
+      <div className='displayImage'>
+        <div className="avatar">
+          <img  src={props.author.picture}></img>
         </div>
-
-        <div className='displayHeader'>
-          <h1 className='top'>Abbsda ASdw</h1>
-          <h3 className='bottom'>sdaopudpaosu</h3>
-        </div>
-
-          <button className='buttonTopRight' >DSAHDKALSHD:</button>
-
       </div>
-    )
-  }
+
+      <div className='displayHeader'>
+      <h1 className='top'>{props.author.name}</h1>
+        <h3 className='bottom'>Front End Developer</h3>
+      </div>
+      <button className={buttonClass}>{
+        props.isTrending === true ? 'Trending' : props.status === 1 ? 'Open Tasks' : 'Completed Tasks'
+      }</button>
+    </div>
+  )
 }

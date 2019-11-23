@@ -18,6 +18,16 @@
   object-fit: cover;
 }
 
+.displayImage{
+  margin: 1vw;
+  padding-top: 1vw;
+  padding-right: 0;
+  padding-left: 1vw;
+  padding-bottom: 1vw;
+  max-width: 40%;
+  max-height: 70%;
+}
+
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: .5em;
@@ -29,15 +39,7 @@
   position: relative;
 }
 
-.displayImage{
-  margin: 1vw;
-  padding-top: 1vw;
-  padding-right: 0;
-  padding-left: 1vw;
-  padding-bottom: 1vw;
-  max-width: 40%;
-  max-height: 70%;
-}
+
 
 .displayHeader{
   margin-top: 1.5vw;
@@ -70,6 +72,36 @@
   margin-right: 5%;
   max-width: 10vw;
   background-color: rgb(245, 75, 75);
+  color: white;
+  padding: .5vw;
+  border: none;
+  border-radius: 10em;
+  flex:1;
+  min-width:70px;
+}
+
+.buttonOpen{
+  margin-left: 5%;
+  margin-top: 10%;
+  margin-bottom:10%;
+  margin-right: 5%;
+  max-width: 10vw;
+  background-color: rgb(245, 75, 75);
+  color: white;
+  padding: .5vw;
+  border: none;
+  border-radius: 10em;
+  flex:1;
+  min-width:70px;
+}
+
+.buttonCompleted {
+  margin-left: 5%;
+  margin-top: 10%;
+  margin-bottom:10%;
+  margin-right: 5%;
+  max-width: 10vw;
+  background-color: rgb(54, 218, 117);
   color: white;
   padding: .5vw;
   border: none;
@@ -179,8 +211,10 @@
 }
 
 .thumbNailImg {
+  display: block;
   width: 100%;
   max-width: 15vw;
+  max-height: 10vw
 }
 
 .statInfo {
@@ -189,7 +223,7 @@
   position: relative;
   width: 12vw;
   margin-left: 2vw;
-  padding: 1vw;
+  padding: .1vw;
   height:
 }
 
@@ -199,13 +233,10 @@
 }
 
 .pledgeBTN button {
-
-  padding-top: 1vw;
-  padding-right: 2vw;
-  padding-left: 2vw;
-  padding-bottom: 1vw;
+  padding: 0.4vw;
+  max-width: 10vw;
   border: 1px double rgb(186, 194, 219);
-  border-radius: .3em;
+  border-radius: 1em;
   background-color: white;
   color: rgb(186, 194, 219);
 }

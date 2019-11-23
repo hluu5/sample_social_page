@@ -40,6 +40,7 @@ const getEntries = (args)=> {
   })
   .then((parsed)=> {
     let filterFunction = (e)=>{return e};
+
     //this is just a placeholder function. Depends on which params are passed through request, this function will change
     let sortFunction = null;
 
@@ -58,7 +59,7 @@ const getEntries = (args)=> {
 
     //filter by trending;
     if (args.input.filter==='completedTasks') {
-      filterFunction=(e)=>{return e.trending === 0}
+      filterFunction=(e)=>{return e.status === 0}
     }
 
     //filter our result:

@@ -1,106 +1,154 @@
-import React from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import Card from './components/Card.jsx';
 import Filter from './components/Filter.jsx';
-import ApolloClient from 'apollo-boost';
-import { gql } from "apollo-boost";
-import { ApolloProvider } from '@apollo/react-hooks';
-import {createHttpLink} from 'apollo-link-http';
-import {InMemoryCache} from 'apollo-cache-inmemory';
+import axios from 'axios';
 
-const myLink = new createHttpLink({
-  uri: 'http://localhost:4000/graphql',
-});
 
-const client = new ApolloClient({
-  link: myLink,
-  cache: new InMemoryCache()
-})
+const App = () => {
+  // Set first pagination State
+  const [first, setFirst] = useState(0);
 
-const getEntries = gql`
-  query ($first: Int, $sortby: String, $filter: String) {
-    getEntries(input: {first: $first, sortby: $sortby, filter: $filter, offset: 5}) {
-      author {
-        name
-        picture
-        score
-      }
-      popularity
-      isTrending
-      date
-      title
-      description
-      numComments
-      thumbnail
-      codeSubmissionTotal
-      pledgeTotal
-      pledgeGoal
-      pledgerCount
-      status
-    }
-  }
-`;
+  //Set list entries state
+  const [list, setList] = useState([])
 
-class App extends React.Component {
-  constructor(props)  {
-    super(props);
-    this.state= {
-      filter: null,
-      sortby : null,
-      offset: null,
-      first: null,
-    };
-    this.changeFilterState = this.changeFilterState.bind(this);
-    this.changeSortCritState = this.changeSortCritState.bind(this);
-    this.submitChange = this.submitChange.bind(this)
-  }
+  const [isLoading, setLoading] = useState(true);
 
-  changeFilterState(e) {
-    this.setState({
-      filter: e,
-      first: 0
-    })
-  }
+  // Set filter State
+  const [filter, setFilter] = useState(null);
 
-  changeSortCritState(e) {
-    this.setState({
-      sortby: e,
-      first: 0
-    })
-  }
+  const changeFilterState = (e) => {
+    setFilter(e);
+    setFirst(0);
+    setList([])
+  };
 
-  submitChange() {
-    this.props.getEntries({
-      variables: {
-        filter: this.state.filter,
-        sortBy: this.state.sortBy,
-        first: this.state.first
+  // Set sortby State
+  const [sortby, setSortby] = useState('date');
+
+  const changeSortCritState = (e) => {
+    setSortby(e);
+    setFirst(0);
+  };
+
+  const [hasMore, setHasMore] = useState(false)
+
+  //Set ref for last
+  const observer = useRef();
+  let lastRef = useCallback((node) => {
+    if (node === null) return;
+
+    if (observer.current) observer.current.disconnect()
+    observer.current = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        setFirst(prev => prev + 5)
       }
     })
-  }
+    if (node) observer.current.observe(node)
+  }, [hasMore])
 
-  displayEntries() {
-    let data = this.props.data;
-    if (data.loading) {
-      return (<div>Loading...</div>)
-    } else {
-      console.log(data)
-    }
-  }
+  useEffect(() => {
+    const getEntries = `
+      query {
+        getEntries(input: {first: ${first}, sortby: ${sortby}, filter: ${filter}, offset: 5}) {
+          author {
+            name
+            picture
+            score
+          }
+          popularity
+          isTrending
+          date
+          title
+          description
+          numComments
+          thumbnail
+          codeSubmissionTotal
+          pledgeTotal
+          pledgeGoal
+          pledgerCount
+          status
+        }
+      }
+    `;
+    axios({
+      method: "POST",
+      url: 'http://localhost:4000/graphql',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      data: JSON.stringify({ query: getEntries })
+    })
+      .then(data => {
+        return data.data.data.getEntries
+      })
+      .then(entries => {
+        setList([...list, ...entries])
+        if (entries.length > 0) {
+          setHasMore(true)
+        }
+      })
+      .then(() => console.log(first))
+      .catch(err => console.log(err))
+  }, [sortby, first, filter])
 
-  render() {
-    console.log(this.state)
-    return (
-      <ApolloProvider client={client}>
-        <div style={{margin: '5em'}}>
-          <Filter changeFilterState={this.changeFilterState}
-                  changeSortCritState={this.changeSortCritState}
-                  submitChange = {this.submitChange}
-                  />
-          <Card />
-        </div>
-      </ApolloProvider>
-    )
-  }
+  return (
+    <div style={{ margin: '5em' }}>
+      <Filter changeFilterState={changeFilterState.bind(this)}
+        changeSortCritState={changeSortCritState.bind(this)}
+      // submitChange = {submitChange}
+      />
+      <ul>
+        {list.map((e, index) => {
+          if (index === list.length - 1) {
+            return (
+              <li
+                style={{ listStyleType: 'none' }}
+                key={e.title}
+                ref={lastRef}>
+                <Card
+                  author={e.author}
+                  isTrending={e.isTrending}
+                  title={e.title}
+                  description={e.description}
+                  numComments={e.numComments}
+                  thumbnail={e.thumbnail}
+                  codeSubmissionTotal={e.codeSubmissionTotal}
+                  pledgeTotal={e.pledgeTotal}
+                  pledgeGoal={e.pledgeGoal}
+                  pledgerCount={e.pledgerCount}
+                  status={e.status}
+                />
+              </li>)
+          } else {
+            return (
+              <li
+                style={{ listStyleType: 'none' }}
+                key={e.title}
+              >
+                <Card
+                  author={e.author}
+                  isTrending={e.isTrending}
+                  title={e.title}
+                  description={e.description}
+                  numComments={e.numComments}
+                  thumbnail={e.thumbnail}
+                  codeSubmissionTotal={e.codeSubmissionTotal}
+                  pledgeTotal={e.pledgeTotal}
+                  pledgeGoal={e.pledgeGoal}
+                  pledgerCount={e.pledgerCount}
+                  status={e.status}
+                />
+              </li>)
+          }
+        })
+        }
+      </ul>
+      <button onClick={() => {
+        setFirst(prev => prev + 5)
+      }}>Load More</button>
+    </div>
+  )
 }
 
 export default (App);
