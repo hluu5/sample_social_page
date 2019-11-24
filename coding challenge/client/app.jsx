@@ -3,15 +3,12 @@ import Card from './components/Card.jsx';
 import Filter from './components/Filter.jsx';
 import axios from 'axios';
 
-
 const App = () => {
   // Set first pagination State
   const [first, setFirst] = useState(0);
 
   //Set list entries state
   const [list, setList] = useState([])
-
-  const [isLoading, setLoading] = useState(true);
 
   // Set filter State
   const [filter, setFilter] = useState(null);
@@ -30,6 +27,7 @@ const App = () => {
     setFirst(0);
   };
 
+  //Set hasMore state (to check if there is more entries)
   const [hasMore, setHasMore] = useState(true)
 
   //Set ref for last
@@ -98,7 +96,6 @@ const App = () => {
     <div style={{ margin: '5em' }}>
       <Filter changeFilterState={changeFilterState.bind(this)}
         changeSortCritState={changeSortCritState.bind(this)}
-      // submitChange = {submitChange}
       />
       <ul>
         {list.map((e, index) => {

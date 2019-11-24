@@ -1,13 +1,13 @@
 import React from 'react';
 import '../../public/style.css';
 
-export default function Stats (stats) {
+export default function Stats (props) {
   return (
     <div style={{marginLeft: '2vw', marginRight: '2vw', paddingBottom:'2vw'}}>
       <div className="statsContainer">
         <div>
           <div className='thumbNailContainer'>
-            <img className='thumbNailImg'src={props.thumbnail} onError="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg';"></img>
+            <img className='thumbNailImg'src={props.thumbnail}></img>
           </div>
           <div className='statInfo'>
             <div style={{
