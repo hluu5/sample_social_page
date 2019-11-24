@@ -143,9 +143,6 @@ const App = () => {
         })
         }
       </ul>
-      <button onClick={() => {
-        setFirst(prev => prev + 5)
-      }}>Load More</button>
     </div>
   )
 }
