@@ -8,7 +8,7 @@ export default function Header (props){
     <div className='container'>
       <div className='displayImage'>
         <div className="avatar">
-          <img  src={props.author.picture} onError="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg';"></img>
+          <img  src={props.author.picture}></img>
         </div>
       </div>
 
