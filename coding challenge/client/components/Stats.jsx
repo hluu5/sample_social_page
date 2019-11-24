@@ -7,7 +7,7 @@ export default function Stats (props) {
       <div className="statsContainer">
         <div>
           <div className='thumbNailContainer'>
-            <img className='thumbNailImg'src={props.thumbnail}></img>
+            <img className='thumbNailImg'src={props.thumbnail} alt='Not Available'></img>
           </div>
           <div className='statInfo'>
             <div style={{

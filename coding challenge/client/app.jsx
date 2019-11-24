@@ -13,22 +13,26 @@ const App = () => {
   // Set filter State
   const [filter, setFilter] = useState(null);
 
-  const changeFilterState = (e) => {
-    setFilter(e);
-    setFirst(0);
-    setList([])
-  };
-
   // Set sortby State
   const [sortby, setSortby] = useState('date');
+
+  //Set hasMore state (to check if there is more entries)
+  const [hasMore, setHasMore] = useState(true)
+
+  //Change Filter State function: change filter criteria,
+  //reset pagination, clear list, reset check length of hasMore state
+  const changeFilterState = (e) => {
+    setHasMore(true);
+    setFilter(e);
+    setFirst(0);
+    setList([]);
+
+  };
 
   const changeSortCritState = (e) => {
     setSortby(e);
     setFirst(0);
   };
-
-  //Set hasMore state (to check if there is more entries)
-  const [hasMore, setHasMore] = useState(true)
 
   //Set ref for last
   const observer = useRef();
@@ -68,6 +72,10 @@ const App = () => {
         }
       }
     `;
+
+    //if all the list are returned from the api, set hasMore state to false,
+    //so that it won't make more api call, save network request to server
+    if (hasMore === false) return
     axios({
       method: "POST",
       url: 'http://localhost:4000/graphql',
@@ -90,7 +98,7 @@ const App = () => {
       })
       .then(() => console.log(first))
       .catch(err => console.log(err))
-  }, [sortby, first, filter])
+  }, [sortby, first, filter, hasMore])
 
   return (
     <div style={{ margin: '5em' }}>

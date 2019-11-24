@@ -15,20 +15,20 @@ export default function Filter (props) {
     <div className='filterBar'>
       <div className="flexButtonContainer textFilter">Filter By:</div>
       <div className="flexButtonContainer" onClick={()=>{
-        this.handleFilter(null);
-        this.handleSort('date')
+        handleFilter(null);
+        handleSort('date')
       }}><button>All</button></div>
       <div className="flexButtonContainer" onClick={()=>{
-        this.handleFilter('trending');
-        this.handleSort('popularity')
+        handleFilter('trending');
+        handleSort('popularity')
       }}><button>Trending</button></div>
       <div className="flexButtonContainer" onClick={()=>{
-        this.handleFilter('openTasks');
-        this.handleSort('date')
+        handleFilter('openTasks');
+        handleSort('date')
       }}><button>Open Task</button></div>
       <div className="flexButtonContainer" onClick={()=>{
-        this.handleFilter('completedTasks');
-        this.handleSort('date')
+        handleFilter('completedTasks');
+        handleSort('date')
       }}><button>Completed Task</button></div>
     </div>
   )
