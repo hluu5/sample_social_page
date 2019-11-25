@@ -1,8 +1,5 @@
 const express = require('express');
-const fs = require('fs');
 const app = express();
-const { promisify } = require('util');
-const readFile= promisify(fs.readFile);
 const graphqlHTTP = require('express-graphql');
 const { schema } = require('../graphql_chema/schemaBuild');
 const bodyParser = require('body-parser');
