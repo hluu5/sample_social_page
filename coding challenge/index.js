@@ -8,8 +8,11 @@ const { schema } = require('./graphql_chema/schemaBuild.js');
 const bodyParser = require('body-parser');
 const {DateTime, createEntries, getEntries} = require('./resolver/resolver');
 
-//pull initial state from json file
-const initialState = require('../entries.json').slice(0,5);
+//pull initial state from json file, sorted by date
+const initialState = require('../entries.json').sort((a,b)=>{
+  if (new Date(a.date) > new Date(b.date)) return -1;
+  else return 1;
+}).slice(0,5);
 
 //import react modules;
 const ReactDOMServer = require('react-dom/server');

@@ -28,7 +28,6 @@ const App = (props) => {
     setFilter(e);
     setFirst(0);
     setList([]);
-
   };
 
   const changeSortCritState = (e) => {
@@ -156,9 +155,5 @@ const App = (props) => {
     </div>
   )
 }
-
-// // if (typeof window !== 'undefined'){
-//   ReactDOM.hydrate(<App />, document.getElementById('app'))
-// // }
 
 export default App;
